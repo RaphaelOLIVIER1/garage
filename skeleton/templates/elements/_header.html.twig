@@ -1,0 +1,58 @@
+<header class="d-block mb-2">
+    <nav class="p-3 navbar navbar-expand-lg bg-dark fixed-top navbar-dark">
+        <div class="container">
+            <a href="../client/index.php" class="navbar-brand"><img src={{asset('media/Capture_d_écran_2024-02-02_213253-removebg-preview.png')}} alt="error"></a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse " id="navmenu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a href="../client/boutique.php" class="nav-link">
+                            Boutique
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../client/contact.php" class="nav-link">
+                            Contacte
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../client/profile.php" class="nav-link">
+                            Profil
+                        </a>
+                    </li>
+                    <?php
+                    if (isset($_SESSION['roles'])) {
+                        if ($_SESSION['roles'] == 1) {
+
+                    ?>
+                            <li class="nav-item">
+                                <a href="../admin/acceuil.php" class="nav-link">
+                                    Administrateur
+                                </a>
+                            </li>
+                    <?php
+                        }
+                    }
+                    ?>
+                    <?php
+                    if (isset($_SESSION['roles'])) {
+                        if ($_SESSION['roles'] == 2 || $_SESSION['roles'] == 1) {
+                    ?>
+                            <li class="nav-item">
+                                <a href="../employer/acceuil.php" class="nav-link">
+                                    Moderation
+                                </a>
+                            </li>
+                    <?php
+                        }
+                    }
+                    ?>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
