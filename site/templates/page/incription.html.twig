@@ -1,0 +1,19 @@
+{% extends "layout/base.html.twig" %}
+
+{% block body %}
+    
+<section class="container my-5">
+<h1>Inscription</h1>
+<div class="container h-200">
+        {{ form_start(form)}}
+            {{ form_row(form.firstname {'attr': {'class': 'form-control', 'placeholder':'renter votre nom'}})}}
+            {{ form_row(form.lastname {'attr': {'class': 'form-control', 'placeholder':'renter votre prénom'}})}}
+            {{ form_row(form.email {'attr': {'class': 'form-control', 'placeholder':'renter votre email'}})}}
+            {{ form_row(form.password {'attr': {'class': 'form-control', 'placeholder':'valider votre mot de passe'}})}}
+            <button type="submit" class="btn btn-success mt-3">
+                s'incrire
+            </button>
+</div>
+</section>
+
+{% endblock body %}
