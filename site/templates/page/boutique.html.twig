@@ -1,0 +1,47 @@
+{% extends "layout/base.html.twig" %}
+
+{% block title %}
+    boutique
+{% endblock title %}
+
+{% block head %}
+    
+{% endblock head %}
+
+{% block body %}
+    
+<main class="d-flex flex-column justify-content-center align-items-center">
+    <section class="d-flex mt-5 p-0">
+        <div class="search-panel d-sm-flex">
+            <div class="global-1 m-2">
+                <p><input type="range" class="form-range" id="price_range" min="0" max="200000" value="200000" name="prix">prix:</p>
+            </div>
+            <div class="global-2 m-2">
+                <p><input type="range" class="form-range" id="kilometre_range" min="0" max="200000" value="200000" name="kilometre">kilometre:</p>
+            </div>
+            <div class="global-3 m-2">
+                <p><input type="range" class="form-range" id="annee_range" min="1950" max="2024" value="2024" name="annee">année:</p>
+            </div>
+            <button onclick="filterProducts()" class="btn btn-outline-primary">Filter Products</button>
+        </div>
+
+    </section>
+    <div id="productContainer" class="">
+            <article class="card my-5 list-annonce" style="width: 18rem;">
+                <img class=" card-img card-img-top" src="../php/images/<?php echo $img; ?>" alt="">
+                <div class="card-body">
+                    <h5 class="card-title"><?php echo $title; ?></h5>
+                    <h5>Prix: <?php echo $prix; ?><h5>
+                    <h5>Kilomètrage:<?php echo $kilometre; ?></h5>
+                    <h5>Année: <?php echo $annee ?></h5>
+                    <p class="border border-dark p-3 rounded"><?php echo $description ?></p>
+                    <div class="btn btn-primary">
+                        <a class="btn" href="article.php?id=<?php echo $id ?>">voir plus</a>
+                    </div>
+                </div>
+            </article>
+    </div>
+</main>
+
+<script src="{{asset('assets/javascript/boutiqueFiltre.js')}}"></script>
+{% endblock body %}

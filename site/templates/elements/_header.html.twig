@@ -1,7 +1,7 @@
 <header class="d-block mb-2">
     <nav class="p-3 navbar navbar-expand-lg bg-dark fixed-top navbar-dark">
-        <div class="container">
-            <a href="../client/index.php" class="navbar-brand"><img src={{asset('media/Capture_d_écran_2024-02-02_213253-removebg-preview.png')}} alt="error"></a>
+        <div class="container cont-img">
+            <a href="{{ path('app_home_page') }}" class="navbar-brand"><img src={{asset('media/Capture_d_écran_2024-02-02_213253-removebg-preview.png')}} alt="error"></a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
                 <span class="navbar-toggler-icon"></span>
@@ -10,49 +10,72 @@
             <div class="collapse navbar-collapse " id="navmenu">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a href"" class="nav-link">
+                        <a href=" {{ path('home_boutique') }} " class="nav-link">
                             Boutique
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="../client/contact.php" class="nav-link">
+                        <a href="" class="nav-link">
                             Contacte
                         </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="../client/profile.php" class="nav-link">
-                            Profil
+                      </li>
+                      {% if is_granted('ROLE_ADMIN') %}
+                      <li class="nav-item">
+                          <a href="{{ path('app_horraire_index') }}" class="nav-link">
+                            Administrateur
+                           </a>
+                      </li>
+                      <li class="nav-item">
+                                <a href="" class="nav-link">
+                                     Moderation
+                               </a>
+                          </li>
+                      {% endif %}
+                      <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          Profil
                         </a>
-                    </li>
-                    <?php
-                    if (isset($_SESSION['roles'])) {
-                        if ($_SESSION['roles'] == 1) {
-
-                    ?>
-                            <li class="nav-item">
-                                <a href="../admin/acceuil.php" class="nav-link">
-                                    Administrateur
-                                </a>
-                            </li>
-                    <?php
-                        }
-                    }
-                    ?>
-                    <?php
-                    if (isset($_SESSION['roles'])) {
-                        if ($_SESSION['roles'] == 2 || $_SESSION['roles'] == 1) {
-                    ?>
-                            <li class="nav-item">
-                                <a href="../employer/acceuil.php" class="nav-link">
-                                    Moderation
-                                </a>
-                            </li>
-                    <?php
-                        }
-                    }
-                    ?>
-                </ul>
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="{{path('app_register')}}">inscription</a></li>
+                          <li><a class="dropdown-item" href="{{path('app_login')}}">connection</a></li>
+                        </ul>
+                      </li>
+                      {# {% if app.user == 'ROLE_ADMIN' %} #}
+                  {# {% endif %}  #}
+                    </ul>
             </div>
         </div>
     </nav>
+
+    {# <nav class="p-3 navbar navbar-expand-lg bg-dark fixed-top navbar-dark">
+        <div class="container-fluid cont-img">
+          <a class="navbar-brand" href="{{ path('app_home_page') }}"><img src="{{asset('media/Capture_d_écran_2024-02-02_213253-removebg-preview.png')}}" alt=""></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>s
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Features</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Pricing</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Dropdown link
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Action</a></li>
+                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav> #}
 </header>

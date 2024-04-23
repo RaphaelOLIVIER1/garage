@@ -1,0 +1,58 @@
+
+
+
+
+<div class="my-5 mx-3 p-4 border border-dark rounded">
+
+    <h1>Horraire index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Lundi Matin</th>
+                <th>Lundi Soir</th>
+                <th>Mardi Matin</th>
+                <th>Mardi Soir</th>
+                <th>Mercredi Matin</th>
+                <th>Mercredi Soir</th>
+                <th>Jeudi Matin</th>
+                <th>Jeudi Soir</th>
+                <th>Vendredi Matin</th>
+                <th>Vendredi Soir</th>
+                <th>Samedi Matin</th>
+                <th>Samedi Soir</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for horraire in horraires %}
+            <tr>
+                <td>{{ horraire.id }}</td>
+                <td>{{ horraire.lundiM ? horraire.lundiM|date('H:i:s') : '' }}</td>
+                <td>{{ horraire.lundiS ? horraire.lundiS|date('H:i:s') : '' }}</td>
+                <td>{{ horraire.mardiM ? horraire.mardiM|date('H:i:s') : '' }}</td>
+                <td>{{ horraire.mardiS ? horraire.mardiS|date('H:i:s') : '' }}</td>
+                <td>{{ horraire.mercrediM ? horraire.mercrediM|date('H:i:s') : '' }}</td>
+                <td>{{ horraire.mercrediS ? horraire.mercrediS|date('H:i:s') : '' }}</td>
+                <td>{{ horraire.jeudiM ? horraire.jeudiM|date('H:i:s') : '' }}</td>
+                <td>{{ horraire.jeudiS ? horraire.jeudiS|date('H:i:s') : '' }}</td>
+                <td>{{ horraire.vendrediM ? horraire.vendrediM|date('H:i:s') : '' }}</td>
+                <td>{{ horraire.vendrediS ? horraire.vendrediS|date('H:i:s') : '' }}</td>
+                <td>{{ horraire.samediM ? horraire.samediM|date('H:i:s') : '' }}</td>
+                <td>{{ horraire.samediS ? horraire.samediS|date('H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_horraire_show', {'id': horraire.id}) }}">show</a>
+                    <a href="{{ path('app_horraire_edit', {'id': horraire.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="14">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_horraire_new') }}">Create new</a>
+</div>

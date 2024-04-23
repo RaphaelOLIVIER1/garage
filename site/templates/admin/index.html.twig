@@ -1,0 +1,23 @@
+{% extends "layout/base.html.twig" %}
+{% block header %}
+<li class="nav-item">
+    <a href="{{path('app_horraire_index')}}" class="nav-link">
+         Administrateur
+     </a>
+  </li>
+{% endblock header %}
+
+{% block body %}
+<main class="m-5 d-flex flex-column align-items-center">
+    <section class="d-flex justify-content-center ">
+       {% include "admin/horraire/index.html.twig" %}
+    </section>
+    <section class="m-3">
+        <div class="p-5 border border-dark border-1 rounded d-flex flex-column align-items-center">
+            <h1>Géstion de compte</h1>
+            <a href="{{path('app_user_index')}}" class="rounded-pill bg-dark p-4 m-2 link-underline link-underline-opacity-0 link-light"><span class="">+</span></a>
+        </div>
+
+    </section>
+</main>
+{% endblock body %}

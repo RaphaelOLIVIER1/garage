@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<title>Horraire</title>
+
+{% block body %}
+    <h1>Horraire</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ horraire.id }}</td>
+            </tr>
+            <tr>
+                <th>Lundi_m</th>
+                <td>{{ horraire.lundiM ? horraire.lundiM|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Lundi_s</th>
+                <td>{{ horraire.lundiS ? horraire.lundiS|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Mardi_m</th>
+                <td>{{ horraire.mardiM ? horraire.mardiM|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Mardi_s</th>
+                <td>{{ horraire.mardiS ? horraire.mardiS|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Mercredi_m</th>
+                <td>{{ horraire.mercrediM ? horraire.mercrediM|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Mercredi_s</th>
+                <td>{{ horraire.mercrediS ? horraire.mercrediS|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Jeudi_m</th>
+                <td>{{ horraire.jeudiM ? horraire.jeudiM|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Jeudi_s</th>
+                <td>{{ horraire.jeudiS ? horraire.jeudiS|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Vendredi_m</th>
+                <td>{{ horraire.vendrediM ? horraire.vendrediM|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Vendredi_s</th>
+                <td>{{ horraire.vendrediS ? horraire.vendrediS|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Samedi_m</th>
+                <td>{{ horraire.samediM ? horraire.samediM|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Samedi_s</th>
+                <td>{{ horraire.samediS ? horraire.samediS|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_horraire_index') }}">back to list</a>
+
+    <a href="{{ path('app_horraire_edit', {'id': horraire.id}) }}">edit</a>
+
+    {{ include('admin/horraire/_delete_form.html.twig') }}
+{% endblock %}

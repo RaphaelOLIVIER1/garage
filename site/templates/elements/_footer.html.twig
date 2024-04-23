@@ -9,44 +9,52 @@
                     <th>après-midi</th>
                 </tr>
             </thead>
-            <tbody>
+            {% for horraire in horraires %}
+            <td>
                 <tr>
                     <td scope="col">Lundi</td>
-                    <td scope="col"><?php echo $row['lundi'] ?></td>
-                    <td scope="col"><?php echo $row2['lundi'] ?></td>
+                    <td>{{ horraire.lundiM ? horraire.lundiM|date('H:i:s') : '' }}</td>
+                    <td>{{ horraire.lundiS ? horraire.lundiS|date('H:i:s') : '' }}</td>
+
                 </tr>
                 <tr>
                     <td scope="col">Mardi</td>
-                    <td scope="col"><?php echo $row['mardi'] ?></td>
-                    <td scope="col"><?php echo $row2['mardi'] ?></td>
+                    <td>{{ horraire.mardiM ? horraire.mardiM|date('H:i:s') : '' }}</td>
+                    <td>{{ horraire.mardiS ? horraire.mardiS|date('H:i:s') : '' }}</td>
                 </tr>
                 <tr>
                     <td scope="col">Mercredi</td>
-                    <td scope="col"><?php echo $row['mercredi'] ?></td>
-                    <td scope="col"><?php echo $row2['mercredi'] ?></td>
+                    <td>{{ horraire.mercrediM ? horraire.mercrediM|date('H:i:s') : '' }}</td>
+                    <td>{{ horraire.mercrediS ? horraire.mercrediS|date('H:i:s') : '' }}</td>
                 </tr>
                 <tr>
                     <td scope="col">Jeudi</td>
-                    <td scope="col"><?php echo $row['jeudi'] ?></td>
-                    <td scope="col"><?php echo $row2['jeudi'] ?></td>
+                    <td>{{ horraire.jeudiM ? horraire.jeudiM|date('H:i:s') : '' }}</td>
+                    <td>{{ horraire.jeudiS ? horraire.jeudiS|date('H:i:s') : '' }}</td>
                 </tr>
                 <tr>
                     <td scope="col">Vendredi</td>
-                    <td scope="col"><?php echo $row['vendredi'] ?></td>
-                    <td scope="col"><?php echo $row2['vendredi'] ?></td>
+                    <td>{{ horraire.vendrediM ? horraire.vendrediM|date('H:i:s') : '' }}</td>
+                    <td>{{ horraire.vendrediS ? horraire.vendrediS|date('H:i:s') : '' }}</td>
                 </tr>
                 <tr>
                     <td scope="col">Samedi</td>
-                    <td scope="col"><?php echo $row['samedi'] ?></td>
-                    <td scope="col"><?php echo $row2['samedi'] ?></td>
+                    <td>{{ horraire.samediM ? horraire.samediM|date('H:i:s') : '' }}</td>
+                    <td>{{ horraire.samediS ? horraire.samediS|date('H:i:s') : '' }}</td>
                 </tr>
                 <tr>
                     <td scope="col">Dimanche</td>
                     <td scope="col">fermer</td>
                     <td scope="col">fermer</td>
                 </tr>
-            </tbody>
-        </table>
+            </td>
+        
+    {% else %}
+        <tr>
+            <td colspan="14">no records found</td>
+        </tr>
+    {% endfor %}
+</table>
     </div>
 </footer>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>

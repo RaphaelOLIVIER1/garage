@@ -1,0 +1,56 @@
+{% extends "layout/base.html.twig" %}
+{% block title %}
+Hello AdminController!   
+{% endblock title %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+
+
+    <main class="m-5 d-flex flex-column align-items-center">
+    <section class="d-flex justify-content-center form signup">
+        <div class="container bg-secondary rounded text-light">
+                <div class="error-txt"></div>
+                <h1>horraire</h1>
+                {{ form_start(horraireForm) }}
+                <div class="p-2">
+                    {{ form_row(horraireForm.lundi_m.vars.value,{'attr': {'class': 'm-3 form-control' }} )}} à {{ form_widget(horraireForm.lundi_s.vars.value,{'attr': {'class': 'm-3 form-control' }} )}}
+                </div>
+                <div class="p-2">
+                  {{ form_row(horraireForm.mardi_m.vars.value,{'attr': {'class': 'm-3 form-control'}} )}} à {{ form_widget(horraireForm.mardi_s.vars.value,{'attr': {'class': 'm-3 form-control' }} )}}
+                </div>
+                <div class="p-2">
+                   {{ form_row(horraireForm.mercredi_m.vars.value,{'attr': {'class': 'm-3 form-control'}} )}} à {{ form_widget(horraireForm.mercredi_s.vars.value,{'attr': {'class': 'm-3 form-control' }} )}}
+                </div>
+                <div class="p-2">
+                 {{ form_row(horraireForm.jeudi_m.vars.value,{'attr': {'class': 'm-3 form-control'}} )}} à {{ form_widget(horraireForm.jeudi_s.vars.value,{'attr': {'class': 'm-3 form-control' }} )}}
+                </div>
+                <div class="p-2">
+                     {{ form_row(horraireForm.vendredi_m.vars.value,{'attr': {'class': 'm-3 form-control'}} )}} à {{ form_widget(horraireForm.vendredi_s.vars.value,{'attr': {'class': 'm-3 form-control' }} )}}
+                </div>
+                <div class="p-2">
+                     {{ form_row(horraireForm.samedi_m.vars.value,{'attr': {'class': 'm-3 form-control'}} )}} à {{ form_widget(horraireForm.samedi_s.vars.value,{'attr': {'class': 'm-3 form-control' }} )}}
+                </div>
+                <button type="submit" class="btn btn-primary m-3">validez</button>
+                {{ form_end(horraireForm) }}
+
+            {% if form_errors(horraireForm) is not empty %}
+            <div class="alert alert-danger" >{{ form_errors(horraireForm) }}</div>
+        {% endif %}
+        </div>
+    </section>
+    <section class="m-3">
+        <div class="p-5 bg-secondary rounded d-flex flex-column align-items-center">
+            <h1>Création de compte moderation</h1>
+            <a href="incription_moderateur.php" class="rounded-pill bg-dark p-4 m-2 link-underline link-underline-opacity-0 link-light"><span class="">+</span></a>
+        </div>
+
+    </section>
+</main>
+</div>
+{% endblock body %}
