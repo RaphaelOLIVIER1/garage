@@ -1,0 +1,24 @@
+{% extends "layout/base.html.twig" %}
+{% block title %}
+    annonce
+{% endblock title %}
+
+{% block body %}
+    
+<main class="m-5 d-flex flex-column justify-content-center align-items-center">
+        <div class="d-sm-flex align-items-center mb-3 justify-content-center border border-dark rounded">
+            <img class="img-fluid d-sm-block rounded" style="min-width: 50px; max-width: 300px; max-height: 200px;" src="{{ vich_uploader_asset(annonce, 'imageFile') }}" alt="">
+        </div>
+    <section style="width: 75vw" class="m-5 d-flex flex-column justify-content-center align-items-center text-center">
+        <div>
+            <h3 class="my-2 text-center"><span class="">Title:</span> {{annonce.title}} </h3>
+            <h3 class="my-2 text-center">Prix: {{annonce.prix}}€</h3>
+            <h3 class="my-2 text-center">Kilomètrage: {{annonce.kilometrage}}km</h3>
+            <h3 class="my-2 text-center">Année de circulation: {{annonce.annee}}</h3>
+            <h3 class="my-2 text-center">Description:</h3>
+            <p class="m-2 border border-warning rounded p-2">{{annonce.description}}</p>
+        </div>
+        <a class="btn btn-primary m-3 text-center" href="contact.php?id=<?php echo $idannonce ?>" type="submit">contacter</a>
+    </section>
+</main>
+{% endblock body %}

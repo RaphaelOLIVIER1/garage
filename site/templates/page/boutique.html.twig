@@ -26,21 +26,22 @@
         </div>
 
     </section>
+    {% for annonce in annonces %}
     <div id="productContainer" class="">
             <article class="card my-5 list-annonce" style="width: 18rem;">
-                <img class=" card-img card-img-top" src="../php/images/<?php echo $img; ?>" alt="">
+                <img class=" card-img card-img-top" src="{{ vich_uploader_asset(annonce,'imageFile') }}" alt="">
                 <div class="card-body">
-                    <h5 class="card-title"><?php echo $title; ?></h5>
-                    <h5>Prix: <?php echo $prix; ?><h5>
-                    <h5>Kilomètrage:<?php echo $kilometre; ?></h5>
-                    <h5>Année: <?php echo $annee ?></h5>
-                    <p class="border border-dark p-3 rounded"><?php echo $description ?></p>
+                    <h5 class="card-title"> {{annonce.title}} </h5>
+                    <h5>Prix: {{annonce.prix}} <h5>
+                    <h5>Kilomètrage: {{annonce.kilometrage}} </h5>
+                    <h5>Année: {{annonce.annee}} </h5>
                     <div class="btn btn-primary">
-                        <a class="btn" href="article.php?id=<?php echo $id ?>">voir plus</a>
+                        <a class="btn" href="{{ path('app_annonce_show', {'id': annonce.id}) }}">voir plus</a>
                     </div>
                 </div>
             </article>
     </div>
+    {% endfor %}
 </main>
 
 <script src="{{asset('assets/javascript/boutiqueFiltre.js')}}"></script>
