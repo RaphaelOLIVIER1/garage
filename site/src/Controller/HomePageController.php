@@ -43,4 +43,11 @@ class HomePageController extends AbstractController
             'horraires' => $horraireRepository->findAll()
         ]);
     }
+    #[Route('contact', name: 'app_home_contact', methods: ['GET'])]
+    public function contact(HorraireRepository $horraireRepository,): Response
+    {
+        return $this->render('page/contact.html.twig', [
+            'horraires' => $horraireRepository->findAll()
+        ]);
+    }
 }
