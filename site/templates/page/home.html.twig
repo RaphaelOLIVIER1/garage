@@ -1,8 +1,10 @@
 {% extends "layout/base.html.twig" %}
 
 {% block body %}
-    
+
+
 <main class="">
+   
     <section class="bg-dark text-light p-5 text-center text-sm-start ">
         <div class="container">
             <div class="d-sm-flex align-items-center justify-content-between">
@@ -37,35 +39,23 @@
         </section>
         <section class="d-flex-sm m-4 flex-column justify-content-center align-items-center text-center">
             <h3>Les témoignage</h3>
-            <div class="bg-dark py-2 rounded d-flex-sm text-light">
+            <div class="bg-dark py-2 rounded d-flex-sm text-light p-2">
                 <div class="mx-2">
-                    <?php
-                    while ($row = mysqli_fetch_assoc($sql)) {
-                        $lname = $row['lname'];
-                        $fname = $row['fname'];
-                        $temoignage = $row['temoignage'];
-                        $note = $row['note'];
-                    ?>
+                     {% for temoignage in temoignages  %}
                         <article class="bg-secondary rounded d-sm-flex my-1 px-3 py-2">
                             <div class="bg-primary rounded " style="max-height: 40%;">
-                                <p class="m-1 fs-2"><?php echo $note ?></p>
+                                <p class="m-1 fs-2"> {{temoignage.note}} </p>
                             </div>
-                            <div class="d-flex-sm align-items-center justify-content-center fw-bold rounded">
-                                <h2 class=" m-1">
-                                    <?php echo $lname ?>
-                                </h2>
-                                <h2 class="m-1"><?php echo $fname ?>:</h2>
+                            <div class="bg-primary-subtle rounded text-dark py-2 px-5 d-flex align-items-center justify-content-center m-1">
+                                <p class=""> {{temoignage.string}} </p>
                             </div>
-                            <div class="bg-primary-subtle rounded text-dark py-2 px-5 d-flex align-items-center justify-content-center m-2">
-                                <p class=""><?php echo $temoignage ?></p>
-                            </div>
-
                         </article>
-                    <?php
-                    }
-                    ?>
+                   
+                        {% endfor %}
                 </div>
-                <a href="temoignage.php" class="btn btn-primary p-2 m-2">écrire</a>
+                {% if user != null %}
+                <a href="{{path('app_temoignage_new')}}" class="btn btn-primary p-2 m-2">écrire</a>
+                {% endif %}
             </div>
         </section>
     </div>

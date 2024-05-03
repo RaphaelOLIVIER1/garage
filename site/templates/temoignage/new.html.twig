@@ -1,0 +1,17 @@
+{% extends "layout/base.html.twig" %}
+{% block title %}
+New Temoignage
+{% endblock title %}
+{% block body %}
+<div class="m-5">
+
+    <h1>Create new Temoignage</h1>
+
+    {{ include('temoignage/_form.html.twig') }}
+    {% if is_granted('ROLE_EDITOR') %}
+    <a href="{{ path('app_temoignage_index') }}" class="btn btn-secondary ">back to list</a>
+    {% else %}
+    <a href="{{ path('app_home_page') }}" class="btn btn-secondary ">back to list</a>
+    {% endif %}
+</div>
+{% endblock %}

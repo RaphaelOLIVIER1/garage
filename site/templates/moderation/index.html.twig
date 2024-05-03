@@ -1,0 +1,17 @@
+{% extends "layout/base.html.twig" %}
+{% block title %}
+    moderation
+{% endblock title %}
+
+{% block body %}
+<main class="d-flex align-items-center justify-content-center mt-3" style="height: 70vh;">
+    <section class=" d-flex flex-column ">
+        <div class="m-3 bg-dark p-2 rounded btn d-flex align-items-center justify-content-center">
+            <a class="text-decoration-none text-light" href="{{path('app_annonce_index')}}">Ajouter une annonce</a>
+        </div>
+        <div class="m-3 bg-dark p-2 rounded btn d-flex align-items-center justify-content-center">
+            <a class="text-decoration-none text-light" href="{{path('app_temoignage_index')}}">Voir les message</a>
+        </div>
+    </section>
+</main>
+{% endblock body %}

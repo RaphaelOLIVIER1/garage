@@ -1,0 +1,33 @@
+{% extends "layout/base.html.twig" %}
+{% block title %}
+Temoignage
+{% endblock title %}
+{% block body %}
+<div class="m-5">
+
+    <h1>Temoignage</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ temoignage.id }}</td>
+            </tr>
+            <tr>
+                <th>String</th>
+                <td>{{ temoignage.string }}</td>
+            </tr>
+            <tr>
+                <th>Note</th>
+                <td>{{ temoignage.note }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_temoignage_index') }}" class="btn btn-secondary">back to list</a>
+
+    <a href="{{ path('app_temoignage_edit', {'id': temoignage.id}) }}" class="btn btn-primary">edit</a>
+
+    {{ include('temoignage/_delete_form.html.twig') }}
+</div>
+{% endblock %}

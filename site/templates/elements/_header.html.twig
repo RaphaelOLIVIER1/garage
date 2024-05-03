@@ -25,12 +25,14 @@
                             Administrateur
                            </a>
                       </li>
+                      {% endif %}
+                      {% if is_granted('ROLE_EDITOR') %}
                       <li class="nav-item">
-                                <a href="" class="nav-link">
+                                <a href="{{ path('app_editor') }}" class="nav-link">
                                      Moderation
                                </a>
                           </li>
-                      {% endif %}
+                          {% endif %}
                       <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                           Profil
